@@ -1,1 +1,1 @@
-web: gunicorn pydjblog.wsgi
+web: gunicorn djangoherokuapp.wsgi --log-file -
