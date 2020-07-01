@@ -1,8 +1,4 @@
 from django.shortcuts import render
-
-
-# Create your views here.
-
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -12,14 +8,12 @@ import webbrowser
 driver = webdriver.Chrome(executable_path=r'C:\Users\Yogesh\Downloads\chromedriver.exe')
 driver.get("https://techcrunch.com/")
 
-
 def data_scrapping(request):
     news_titles=[] 
     times=[] 
     images= []
     authors= []
     
-
     content = driver.page_source
     soup = BeautifulSoup(content,features="html.parser")
     for a in soup.findAll('article', attrs={'class':'post-block post-block--image post-block--unread'}):
@@ -34,7 +28,7 @@ def data_scrapping(request):
         images.append(image.txt) 
         
     df = pd.DataFrame({'NEWS_TITLE':news_titles,'AUTHOR':authors,'TIMESTAM':times,})
-    df.to_csv('product_demo2.csv', index=False, encoding='utf-8')   
+    df.to_csv('product_demo2.csv', encoding='utf-8')   
     data = pd.read_csv(r'D:\Python Practice\product_demo2.csv')
     html = data.to_html()
     path = os.path.abspath('data_demo.html')
