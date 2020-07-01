@@ -121,4 +121,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-ALLOWED_HOSTS =['webdatascrap.herokuapp.com']
+#ALLOWED_HOSTS =['webdatascrap.herokuapp.com']
