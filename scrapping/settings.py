@@ -26,7 +26,7 @@ SECRET_KEY = '$l%25m#(7*+260f5&a_ks7+u#88obv!1g45(a1-ijn_%@o416n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS =['webdatascrap.herokuapp.com']
+ALLOWED_HOSTS =['webdatascrap.herokuapp.com','127.0.0.1']
 
 
 
