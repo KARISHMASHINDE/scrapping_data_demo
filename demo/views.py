@@ -27,17 +27,20 @@ def data_scrapping(request):
         news_titles.append(news_title.text)
         authors.append(author.text)
         times.append(time.text)
-        print(times)
+       
         #images.append(image.txt) 
     
     images = soup.find_all('img', {'src':re.compile('.jpg')})
     for image in images: 
-        print(image['src']+'\n')
+        k=(image['src'])
+        Images.append(k)
+        
       
         
         
-    df = pd.DataFrame({'NEWS_TITLE':news_titles,'AUTHOR':authors,'TIMESTAM':times,})
-    df.to_csv('product_demo3.csv', encoding='utf-8')   
+    df = ({'NEWS_TITLE':news_titles,'AUTHOR':authors,'TIMESTAM':times,"Images":Images},orient='index')
+    r=df.transpose()
+    r.to_csv('product_demo3.csv', encoding='utf-8')   
     data = pd.read_csv(r'C:\Users\Yogesh\Desktop\Project_collection\data_scrapping\scrapping\product_demo3.csv')
     html = data.to_html()
     path = os.path.abspath('data_demo1.html')
